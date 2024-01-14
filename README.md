@@ -21,7 +21,6 @@ It only demonstrates "how certain technologies work". <b>You shall not misuse th
   - Localhost
   - Cloudflared
   - LocalXpose
-- Mask URL support 
 - Docker support
 
 ##
@@ -44,11 +43,12 @@ It only demonstrates "how certain technologies work". <b>You shall not misuse th
 ##
 
 ### Installation (Termux)
-You can easily install x-zone in Termux by using tur-repo
+You can easily install x-zone in Termux 
 ```
-$ pkg install tur-repo
-$ pkg install x-zone
-$ x-zone
+$ pkg install git
+$ git clone https://github.com/rabikishanr/x-zone.git
+$ cd x-zone
+$ bash x-zone.sh
 ```
 ### A Note : 
 ***Termux discourages hacking*** .. So never discuss anything related to *x-zone* in any of the termux discussion groups. For more check : [wiki](https://wiki.termux.com/wiki/Hacking)
