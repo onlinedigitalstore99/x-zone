@@ -5,10 +5,10 @@
 </p>
 <h3><p align="center">Disclaimer</p></h3>
 
-<i>Any actions and or activities related to <b>Zphisher</b> is solely your responsibility. The misuse of this toolkit can result in <b>criminal charges</b> brought against the persons in question. <b>The contributors will not be held responsible</b> in the event any criminal charges be brought against any individuals misusing this toolkit to break the law.
+<i>Any actions and or activities related to <b>EDU-TOOLKIT</b> are solely your responsibility. The misuse of this toolkit can result in <b>disciplinary action</b> brought against the persons in question. <b>The creators will not be held responsible</b> in the event any consequences arise from individuals misusing this toolkit to break ethical guidelines.
 
-<b>This toolkit contains materials that can be potentially damaging or dangerous for social media</b>. Refer to the laws in your province/country before accessing, using,or in any other way utilizing this in a wrong way.
+<b>This toolkit contains materials that are meant for educational purposes only</b>. Please refer to the laws and ethical standards in your region before accessing, using, or in any other way utilizing this toolkit.
 
-<b>This Tool is made for educational purposes only</b>. Do not attempt to violate the law with anything contained here. <b>If this is your intention, then Get the hell out of here</b>!
+<b>This Tool is made for educational purposes only</b>. Do not attempt to engage in any illegal or unethical activities with anything contained here. <b>If this is your intention, then refrain from using this toolkit</b>!
 
-It only demonstrates "how phishing works". <b>You shall not misuse the information to gain unauthorized access to someones social media</b>. However you may try out this at your own risk.</i>
+It only demonstrates "how certain technologies work". <b>You shall not misuse the information to compromise the security or privacy of others</b>. However, you may explore and learn at your own risk.</i>
