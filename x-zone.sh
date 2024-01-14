@@ -562,9 +562,7 @@ main_menu() {
 	{ clear; banner; echo; }
 	cat <<- EOF
 		${RED}[${WHITE}1${RED}]${ORANGE} MUMMY-SUIT (PUBG) ${RED}[${WHITE}2${RED}]${ORANGE} SPIN(PUBG)   ${RED}[${WHITE}3${RED}]${ORANGE} X-SUIT(BGMI)
-		${RED}[${WHITE}4${RED}]${ORANGE} GLACIER(BGMI)     ${RED}[${WHITE}5${RED}]${ORANGE} FREEFIRE       ${RED}[${WHITE}6${RED}]${ORANGE} TORJAN
-		${RED}[${WHITE}7${RED}]${ORANGE} DDoS       ${RED}[${WHITE}8${RED}]${ORANGE} DEVICE CORRUPT
-
+		${RED}[${WHITE}4${RED}]${ORANGE} GLACIER(BGMI)     ${RED}[${WHITE}5${RED}]${ORANGE} FREEFIRE    
 		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit
 
 	EOF
