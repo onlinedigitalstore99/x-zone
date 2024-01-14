@@ -1,7 +1,7 @@
 # x-zone
 <p align="center">
 <img src=".github/misc/logo.png"/>
- <h3>A Phishing tool of PUBG,BGMI and FF EVENT</h3>
+                    <h3>A Phishing tool of PUBG,BGMI and FF EVENT</h3>
 </p>
 <h3><p align="center">Disclaimer</p></h3>
 
