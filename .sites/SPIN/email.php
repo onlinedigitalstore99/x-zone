@@ -1,0 +1,3 @@
+<?php
+$emailku = 'PASTE YOUR EMAIL HERE'; // GANTI EMAIL KAMU DISINI
+?>
