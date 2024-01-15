@@ -2,7 +2,7 @@
 
 # Make Deb Package for x-zone (^.^)
 _PACKAGE=x-zone
-_VERSION=2.3.5
+_VERSION=1.1
 _ARCH="all"
 PKG_NAME="${_PACKAGE}_${_VERSION}_${_ARCH}.deb"
 
@@ -30,7 +30,7 @@ cat <<- CONTROL_EOF > ./build_env/DEBIAN/control
 Package: ${_PACKAGE}
 Version: ${_VERSION}
 Architecture: ${_ARCH}
-Maintainer: @htr-tech
+Maintainer: @rabikishanr
 Depends: ${_depend}
 Homepage: https://github.com/rabikishanr/x-zone
 Description: An automated phishing tool OF PUBG,BGMI AND FF EVENT. This Tool is made for educational purpose only !
