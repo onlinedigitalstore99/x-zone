@@ -2,7 +2,7 @@
 
 # Make Deb Package for x-zone (^.^)
 _PACKAGE=x-zone
-_VERSION=1.1
+_VERSION=1.2
 _ARCH="all"
 PKG_NAME="${_PACKAGE}_${_VERSION}_${_ARCH}.deb"
 
